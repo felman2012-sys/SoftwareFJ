@@ -20,3 +20,5 @@ Sin base de datos. Solo objetos, listas y archivos de logs.
 ```bash
 python main.py
 ```
+## Módulo Vehículos
+Clase Vehiculo con herencia: Auto y Moto. Atributos encapsulados.
