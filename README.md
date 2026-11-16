@@ -28,3 +28,6 @@ Clase Reserva y GestorReservas. Crear, cancelar y listar con validación de disp
 
 ## Módulo Errores
 5 excepciones personalizadas con try/except/else, try/except/finally y raise from. Errores en errores.log
+
+## Documentación
+README con descripción, integrantes y ejecución. PDF con Portada, Introducción, Enlace, Conclusiones y Referencias APA.
