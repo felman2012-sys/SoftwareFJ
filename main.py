@@ -368,10 +368,3 @@ def main():
         registrar_log(f"Op 10: {e}", "ERROR"); print(f"Op 10 FALLÓ controlado: {e}")
     finally:
         print("Op 10 finalizada")
-
-    sistema.listar_todo()
-    print("\n✅ SISTEMA TERMINO SIN CAERSE. Revisa errores.log")
-    print("="*60)
-if __name__ == "__main__":
-    main()
-    
