@@ -21,7 +21,7 @@ Sin base de datos. Solo objetos, listas y archivos logs.
 python main.py
 ```
 ## Módulo Vehículos
-Clase Vehiculo con herencia: Auto y Moto. Atributos encapsulados.
+Clase de Vehículo con herencia: Auto y Moto. Atributos encapsulados.
 
 ## Módulo Reservas
 Clase Reserva y GestorReservas. Crear, cancelar y listar con validación de disponibilidad.
