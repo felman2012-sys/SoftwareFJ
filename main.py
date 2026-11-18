@@ -201,6 +201,8 @@ class Reserva:
             raise ServicioNoDisponibleError(f"Servicio '{servicio.nombre}' no disponible.")
         if duracion <= 0:
             raise ReservaInvalidaError("Duración debe ser > 0.")
+        if cantidad <= 0:
+            raise ReservaInvalidadError("La cantidad debe ser mayor a 0.")
 
         Reserva._contador += 1
         self.id = Reserva._contador
@@ -212,16 +214,20 @@ class Reserva:
         self.costo_total = 0
 
     def confirmar(self):
+        if self.estado != "Pendiente":
+            raise ReservaInvalidaError("La reserva no esta pendiente.")
         try:
             # Encadenamiento de excepciones con 'raise ... from'
             try:
                 self.costo_total = self.servicio.calcular_costo(self.duracion, cantidad=self.cantidad)
+                if isinstance(self.servicio, AlquilerEquipo):
+                    self.servicio._stock -= self.cantidad
             except ServicioNoDisponibleError as e:
                 raise ReservaInvalidaError(f"No se pudo confirmar reserva {self.id}") from e
 
             self.estado = "Confirmada"
-            registrar_log(f"Reserva {self.id} confirmada - Cliente: {self.cliente.nombre} - Costo: ${self.costo_total}")
-            return f"✅ Reserva {self.id} CONFIRMADA - {self.servicio.nombre} - Total: ${self.costo_total}"
+            registrar_log(f"Reserva {self.id} confirmada - Cliente: "f"{self.cliente.nombre} - Costo: ${self.costo_total}")
+            return f"Reserva {self.id} CONFIRMADA - {self.servicio.nombre} - Total: ${self.costo_total}"
 
         except ReservaInvalidaError as e:
             registrar_log(f"Error confirmando reserva {self.id}: {e} | Causa: {e.__cause__}", "ERROR")
@@ -236,7 +242,7 @@ class Reserva:
         return f"Reserva {self.id} cancelada."
 
     def __str__(self):
-        return f"Reserva {self.id} | {self.cliente.nombre} | {self.servicio.nombre} | Estado: {self.estado} | Total: ${self.costo_total}
+        return f"Reserva {self.id} | {self.cliente.nombre} | {self.servicio.nombre} | Estado: {self.estado} | Total: ${self.costo_total}"
 
 # ------------------------------------------------------------
 # 8. SISTEMA PRINCIPAL - LISTAS INTERNAS
@@ -372,7 +378,7 @@ def main():
     sistema.listar_todo()
     print("\n✅ SISTEMA TERMINO SIN CAERSE. Revisa errores.log")
     print("="*60)
-    if __name__ == "__main__":
+if __name__ == "__main__":
     main()
     
 
