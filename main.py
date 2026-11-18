@@ -236,7 +236,7 @@ class Reserva:
         return f"Reserva {self.id} cancelada."
 
     def __str__(self):
-        return f"Reserva {self.id} | {self.cliente.nombre} | {self.servicio.nombre} | Estado: {self.estado} | Total: ${self.costo_total}"
+        return f"Reserva {self.id} | {self.cliente.nombre} | {self.servicio.nombre} | Estado: {self.estado} | Total: ${self.costo_total}
 
 # ------------------------------------------------------------
 # 8. SISTEMA PRINCIPAL - LISTAS INTERNAS
@@ -368,3 +368,12 @@ def main():
         registrar_log(f"Op 10: {e}", "ERROR"); print(f"Op 10 FALLÓ controlado: {e}")
     finally:
         print("Op 10 finalizada")
+    
+    sistema.listar_todo()
+    print("\n✅ SISTEMA TERMINO SIN CAERSE. Revisa errores.log")
+    print("="*60)
+    if __name__ == "__main__":
+    main()
+    
+
+
