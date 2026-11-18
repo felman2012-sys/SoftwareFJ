@@ -1,14 +1,14 @@
 # Software FJ - Sistema Integral de Gestión
 
 Sistema orientado a objetos para gestionar clientes, servicios y reservas.
-Sin base de datos. Solo objetos, listas y archivos de logs.
+Sin base de datos. Solo objetos, listas y archivos logs.
 
 ## Integrantes
 1. Manuela Pérez Ortiz / Sharon Juliana Peralta Romero 
-2. Desarrollo de Clases Cliente y Servicio
+2. Desarollo de Clases Cliente y Servicio
 3. Desarrollo de Reservas y Excepciones
 4. Pruebas y Logs
-5. Documentación
+5. Documentacion
 
 ## Tecnologías
 - Python 3.10+
