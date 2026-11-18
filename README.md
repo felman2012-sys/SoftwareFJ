@@ -4,7 +4,7 @@ Sistema orientado a objetos para gestionar clientes, servicios y reservas.
 Sin base de datos. Solo objetos, listas y archivos de logs.
 
 ## Integrantes
-1. Manuela Perez Ortiz / Desarrollo Completo
+1. Manuela Pérez Ortiz / Sharon Juliana Peralta Romero 
 2. Desarrollo de Clases Cliente y Servicio
 3. Desarrollo de Reservas y Excepciones
 4. Pruebas y Logs
