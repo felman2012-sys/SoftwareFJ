@@ -11,7 +11,7 @@ from datetime import datetime
 import traceback
 
 # ------------------------------------------------------------
-# 1. SISTEMA DE LOGS
+# 1. SISTEMA DE LOGS, REALIZADO MANUERA PEREZ
 # ------------------------------------------------------------
 def registrar_log(mensaje, nivel="INFO"):
     """Registra eventos y errores en errores.log sin detener el programa."""
@@ -23,7 +23,7 @@ def registrar_log(mensaje, nivel="INFO"):
         print(f"No se pudo escribir log: {e}")
 
 # ------------------------------------------------------------
-# 2. EXCEPCIONES PERSONALIZADAS
+# 2. EXCEPCIONES PERSONALIZADAS, REALIZADO MANUERA PEREZ
 # ------------------------------------------------------------
 class ErrorSoftwareFJ(Exception):
     """Excepción base del sistema."""
@@ -45,7 +45,7 @@ class ParametroFaltanteError(ErrorSoftwareFJ):
     pass
 
 # ------------------------------------------------------------
-# 3. CLASE ABSTRACTA BASE - ENTIDAD
+# 3. CLASE ABSTRACTA BASE - ENTIDAD, REALIZADO MANUERA PEREZ
 # ------------------------------------------------------------
 class Entidad(ABC):
     def __init__(self, id_entidad, nombre):
@@ -69,7 +69,7 @@ class Entidad(ABC):
         return f"[{self._id}] {self._nombre}"
 
 # ------------------------------------------------------------
-# 4. CLASE CLIENTE - ENCAPSULACIÓN + VALIDACIÓN
+# 4. CLASE CLIENTE - ENCAPSULACIÓN + VALIDACIÓN, REALIZADO MANUERA PEREZ
 # ------------------------------------------------------------
 class Cliente(Entidad):
     def __init__(self, id_cliente, nombre, email, telefono, edad):
@@ -100,7 +100,7 @@ class Cliente(Entidad):
         return f"Cliente {self._id} | {self._nombre} | {self.__email} | Tel: {self.__telefono} | Edad: {self.__edad}"
 
 # ------------------------------------------------------------
-# 5. CLASE ABSTRACTA SERVICIO
+# 5. CLASE ABSTRACTA SERVICIO REALIZADO MANUERA PEREZ Y FERNEY MORALES
 # ------------------------------------------------------------
 class Servicio(Entidad):
     def __init__(self, id_servicio, nombre, precio_base, disponible=True):
@@ -136,7 +136,7 @@ class Servicio(Entidad):
         return f"Servicio {self._id} | {self._nombre} | ${self._precio_base} | Disponible: {self._disponible}"
 
 # ------------------------------------------------------------
-# 6. TRES SERVICIOS ESPECIALIZADOS - HERENCIA + POLIMORFISMO
+# 6. TRES SERVICIOS ESPECIALIZADOS - HERENCIA + POLIMORFISMO, REALIZADO POR FERNEY MORALES
 # ------------------------------------------------------------
 class ReservaSala(Servicio):
     def __init__(self, id_servicio, nombre, precio_base, capacidad, disponible=True):
@@ -187,7 +187,7 @@ class AsesoriaEspecializada(Servicio):
         return f"Asesoría '{self._nombre}' - Nivel {self._nivel} - ${self._precio_base}/hora base"
 
 # ------------------------------------------------------------
-# 7. CLASE RESERVA
+# 7. CLASE RESERVA, REALIZADO SHARON PERALTA Y FERNEY MORALES
 # ------------------------------------------------------------
 class Reserva:
     _contador = 0
@@ -245,7 +245,7 @@ class Reserva:
         return f"Reserva {self.id} | {self.cliente.nombre} | {self.servicio.nombre} | Estado: {self.estado} | Total: ${self.costo_total}"
 
 # ------------------------------------------------------------
-# 8. SISTEMA PRINCIPAL - LISTAS INTERNAS
+# 8. SISTEMA PRINCIPAL - LISTAS INTERNAS, REALIZADO SHARON PERALTA
 # ------------------------------------------------------------
 class SistemaFJ:
     def __init__(self):
@@ -275,7 +275,7 @@ class SistemaFJ:
         for r in self.reservas: print(r)
 
 # ------------------------------------------------------------
-# 9. SIMULACIÓN DE 10 OPERACIONES - CON try/except/else/finally
+# 9. SIMULACIÓN DE 10 OPERACIONES - CON try/except/else/finally, REALIZADO SHARON PERALTA
 # ------------------------------------------------------------
 def main():
     print("="*60)
